@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<sorular >
+   <book kategori="tarih">
+      <soru>T.C nin kurucusu kimdir</soru>
+      <cevap1>Mustafa Kemal ATATÜRK</cevap>
+      <cevap2>Ýsmet Ýnönü</cevap>
+      <cevap3>Celal Bayar</cevap>
+      <cevap4>Süleyman Demirel</cevap>
+      <dcevap>Mustafa Kemal ATATÜRK</dcevap>
+   </book>
+</catalog>

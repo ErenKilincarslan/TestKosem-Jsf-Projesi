@@ -1,0 +1,212 @@
+body {
+    margin-top: 50px;
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 30px 15px;
+}
+.sdu-brand {
+    background:transparent url(../..//..//images/test.png) no-repeat 5px 5px;
+    padding-left:60px;
+}
+
+.boslukBırak{
+    overflow: auto;
+    margin: auto; 
+    padding-left: 150px;
+    padding-top: 15px;
+    width: 75%;
+    float: right;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .avatar,
+.messages-dropdown .dropdown-menu .message-preview .name,
+.messages-dropdown .dropdown-menu .message-preview .message,
+.messages-dropdown .dropdown-menu .message-preview .time {
+    display: block;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .avatar {
+    float: left;
+    margin-right: 15px;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .name {
+    font-weight: bold;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .message {
+    font-size: 12px;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .time {
+    font-size: 12px;
+}
+
+.profilepic{
+    padding-bottom:10px;
+}
+
+.announcement-heading {
+    font-size: 50px;
+    margin: 0;
+}
+
+.announcement-text {
+    margin: 0;
+}
+
+.actions {
+    margin:0;
+    padding:0;
+    list-style:none;
+    background:#ecf0f1;
+}
+.actions li{
+    text-align:center;
+    padding:5px 0;
+    border-bottom:1px #ccc solid;
+}
+.actions > li.header{
+    font-weight:bold;
+}
+textarea {
+    min-height:100px;
+    resize:vertical;
+}
+
+@media (min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #page-wrapper {
+        padding: 25px;
+    }
+
+    .side-nav {
+        margin-left: -200px;
+        left: 200px;
+        width: 250px;
+        position: fixed;
+        top: 60px;
+        height: 100%;
+        border-radius: 0;
+        border-right: 1px solid #eee;
+        background-color: #f5f5f5;
+        overflow-y: auto;
+    }
+
+    .side-nav>li.dropdown>ul.dropdown-menu {
+        position: relative;
+        min-width: 250px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+
+    .side-nav>li.dropdown>a {
+        padding: 8px 5px 10px 10px;
+    }
+
+    .side-nav>li>a,
+    .side-nav>li.dropdown>ul.dropdown-menu>li>a {
+        color: #ff4444!important;
+        padding: 8px 5px 10px 15px;
+        font-weight: bold;
+    }
+
+    .side-nav>li.dropdown>a,
+    .side-nav>li.dropdown>ul.dropdown-menu>li>a {
+        color: #18bc9c;
+    }
+
+    .side-nav>li>a:hover,
+    .side-nav>li.dropdown>a:hover,
+    .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
+    .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
+    .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
+        background-color: #ffffff !important;
+    }
+
+    .side-nav>li>a {
+        width: 250px;
+    }
+
+    .side-nav li.active>a {
+        background:#d9f0f1 !important;
+    }
+
+    .navbar-inverse .navbar-nav>li>a:hover,
+    .navbar-inverse .navbar-nav>li>a:focus {
+        background-color: white;
+    }
+
+    .messages-dropdown .dropdown-menu {
+        min-width: 300px;
+    }
+
+    .messages-dropdown .dropdown-menu li a {
+        white-space: normal;
+    }
+
+    .navbar-collapse {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+footer {
+    color: #F2F1DE;
+    background: #f5f5f5;
+    padding:20px 0;
+    margin-left:250px;
+}
+.footer-copywrite,
+.foter-contacts, .footer-map {
+    font-size: 12px;
+}
+.footer-map {
+    position: relative;
+    width: 67%;
+    float: left;
+}
+.map {
+    float: left;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 50%;
+}
+.map a:hover, aside a.jshover {
+    font-size: small;
+}
+.footer-form {
+    float: right;
+    width: 33%;
+    position: relative;
+}
+
+
+.foter-contacts {
+    position: relative;
+    margin-top: 10px;
+    display: inline-block;
+}
+.footer-copywrite {
+    text-align: center;
+    margin:0;
+}
+
+
+
+

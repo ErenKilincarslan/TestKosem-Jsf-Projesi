@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Test Köşem - Giris Yap</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" type="images/x-icon" href="images/test.png"/>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+        <script type="text/javascript" src="js/jquery-1.6.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>
+        <script type="text/javascript" src="js/Swis721_Cn_BT_400.font.js"></script>
+        <script type="text/javascript" src="js/Swis721_Cn_BT_700.font.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/tms-0.3.js"></script>
+        <script type="text/javascript" src="js/tms_presets.js"></script>
+        <script type="text/javascript" src="js/jcarousellite.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+
+    </head>
+
+    <body>
+        <ui:include src="header.xhtml"/>
+
+        <div class="body3">
+            <div class="main">
+                <article id="content">
+                    <div class="wrapper">
+                        <h:form class="col1">
+                            <h2 class="under">Giris Yap</h2>
+                                <div>
+                                    <h:panelGrid columns="2">
+                                        <div  class="wrapper">
+                                            <span>Kullanıcı Adınız :</span>
+                                            <h:inputText class="inputText" id="kullaniciadi" value="#{KullaniciManagedBean.user.kullaniciAdi}"></h:inputText>
+                                        </div>
+                                        <div class="wrapper">
+                                            <span>Sifreniz:</span>
+                                            <h:inputSecret class="inputText" id="sifre" value="#{KullaniciManagedBean.user.sifre}"></h:inputSecret>
+                                        </div>
+                                        <h:commandButton class="inputText" action="#{KullaniciManagedBean.giris()}" value="Giris"></h:commandButton>
+                                        <h:message id="mesaj" for="ad"></h:message>
+                                        <span>Eğer sayfamıza üye değilseniz <a href="uyeOl.xhtml">buraya</a> tıklayarak üye olabilirsiniz.</span>
+                                    </h:panelGrid>
+                                </div>
+                        </h:form>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <ui:include src="altHeader.xhtml"/>
+    </body>
+</html>

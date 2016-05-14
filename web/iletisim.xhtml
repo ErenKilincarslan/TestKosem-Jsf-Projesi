@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Test Köşem - Iletişim</title>
+        <link rel="icon" type="images/x-icon" href="images/test.png"/>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/layout.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/jsfcrud.css" type="text/css" media="all"/>
+        <script type="text/javascript" src="js/jquery-1.6.js" ></script>
+        <script type="text/javascript" src="js/cufon-yui.js"></script>
+        <script type="text/javascript" src="js/cufon-replace.js"></script>
+        <script type="text/javascript" src="js/Swis721_Cn_BT_400.font.js"></script>
+        <script type="text/javascript" src="js/Swis721_Cn_BT_700.font.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/tms-0.3.js"></script>
+        <script type="text/javascript" src="js/tms_presets.js"></script>
+        <script type="text/javascript" src="js/jcarousellite.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+
+    </head>
+    <h:body>
+        <ui:include src="header.xhtml"/>
+        <div class="body3">
+            <div class="main">
+                <!-- content -->
+                <article id="content">
+                    <div class="wrapper">
+                        <section class="col1">
+                            <h2 class="under">Iletisim Formu</h2>
+                            <h:form id="ContactForm">
+                                <div>
+                                    <div  class="wrapper">
+                                        <span>Adınız:</span>
+                                        <h:inputText class="input"/>
+                                    </div>
+                                    <div  class="wrapper">
+                                        <span>Sehir:</span>
+                                        <h:inputText class="input"/>
+                                    </div>
+                                    <div  class="wrapper">
+                                        <span>Email:</span>
+                                        <h:inputText class="input"/>
+                                    </div>
+                                    <div  class="textarea_box">
+                                        <span>Mesajınız:</span>
+                                        <h:inputTextarea cols="1" rows="1"/>
+                                    </div>
+                                    <a href="#">Yolla</a>
+                                    <a href="#">Temizle</a>
+                                </div>
+                            </h:form>
+                        </section>
+                        <section class="col2 pad_left1">
+                            <h2 class="under">iletisim</h2>
+                            <div id="address"><span>Country:
+                                    City:
+                                    Telephone:
+                                    Email:</span>
+                                <span>Türkiye
+                                    Isparta
+                                    +905555555
+                                    <a href="mailto:" class="color2">erenkilincarslan@gmail.com</a>
+                                    <a href="mailto:" class="color2">celalbaydar_48@gmail.com</a>
+                                </span>
+                            </div>
+                            <h2 class="under">Aciklama</h2>
+                            <p>Biz bu websitenin kurucuları olarak , sizin görüşlerinize önem veriyoruz. Sitede gördüğünüz eksiklikleri veya eklenmesini istediğiniz herhangi birşeyi bize mail olarak atarak ulaştırmanız yeterlidir.</p>
+                        </section>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+        <ui:include src="altHeader.xhtml"/>
+    </h:body>
+</html>

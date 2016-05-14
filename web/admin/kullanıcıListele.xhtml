@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>Test Köşem - Kullanıcı Listeleme</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" type="images/x-icon" href="../images/test.png"/>
+    </head>
+    <f:view>
+        <h:body>
+            <ui:include src="adminAnasayfaTemplate.xhtml"/>
+            <div class="boslukBırak">
+                <p:dataTable editable="true" style="margin-left: 14%; margin-top: 5%; margin-right: 5%;" var="yeni" value="#{KullaniciManagedBean.users}">
+
+                    <p:column headerText="Id">
+                        <h:outputText value="#{yeni.kullaniciid}" />
+                    </p:column>
+
+                    <p:column  headerText="Adı">   
+                        <h:outputText value="#{yeni.adi}" />
+                    </p:column>
+
+                    <p:column headerText="Soyadı">   
+                        <h:outputText value="#{yeni.soyadi}" />
+                    </p:column>
+
+                    <p:column headerText="Email">   
+                        <h:outputText value="#{yeni.email}" />
+                    </p:column>
+
+                    <p:column headerText="Kullanıcı Adı">   
+                        <h:outputText value="#{yeni.kullaniciAdi}" />
+                    </p:column>
+
+                    <p:column headerText="Sifre">   
+                        <h:outputText value="#{yeni.sifre}" />
+                    </p:column>
+
+                    <p:column headerText="Yetki">   
+                        <h:outputText value="#{yeni.yetki}" />
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+        </h:body>
+    </f:view>
+</html>

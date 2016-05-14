@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:include src="adminAnasayfaTemplate.xhtml"/>
+        <div class="boslukBırak">
+            <h:form id="form">
+                <p:growl id="messages" showDetail="true" />
+                    
+
+                <p:dataTable style="margin-left: 20%;margin-right: 5%;margin-top: 5%" id="rowEditingTable" var="message" value="#{KullaniciManagedBean.users}"  
+                             paginator="true" rows="10" paginatorPosition="bottom"  
+                             editable="true" >  
+                    <f:facet name="header">  
+                        Row Editing  
+                    </f:facet>  
+
+                    <p:ajax event="rowEdit"  listener="#{KullaniciManagedBean.onRowEdit}" update=":form:messages" immediate="true" process="@this"/>
+
+                    <p:column filterBy="#{message.adi}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Adi"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{message.adi}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText  value="#{message.adi}" style="width:96%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+
+                    <p:column filterBy="#{message.soyadi}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Soyadi"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{message.soyadi}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText  value="#{message.soyadi}" style="width:96%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+                    <p:column filterBy="#{message.kullaniciAdi}">  
+                        <f:facet name="header">  
+                            <h:outputText value="K. Adi"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{message.kullaniciAdi}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText  value="#{message.kullaniciAdi}" style="width:96%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+                    <p:column filterBy="#{message.sifre}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Sifre"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{message.sifre}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText  value="#{message.sifre}" style="width:96%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+
+                    <p:column filterBy="#{message.email}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Email"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{message.email}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText  value="#{message.email}" style="width:96%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+                    <p:column filterBy="#{message.yetki}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Yetki"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{message.yetki}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText  value="#{message.yetki}" style="width:96%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandLink value="Delete" 
+                                       action="#{KullaniciManagedBean.deleteAction(message)}" />
+                    </p:column>
+                    <p:column style="width:6%" exportable="false">  
+                        <p:rowEditor  />  
+                    </p:column>  
+                </p:dataTable>  
+
+                <p:spacer height="20"/>  
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+

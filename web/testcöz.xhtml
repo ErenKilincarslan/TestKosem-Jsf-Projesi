@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <p:panel header="Select a Location" style="margin-bottom:10px;">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="kategori" value="Kategori: " />
+                    <p:selectOneMenu id="kategori" value="#{dropdownView.kategori}" style="width:150px">
+                        <p:ajax listener="#{dropdownView.onKategoriChange}" update="test" />
+                        <f:selectItems value="#{dropdownView.kategoriler}" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel for="test" value="Soru: " />
+                    <p:selectOneMenu id="test" value="#{dropdownView.test1}" style="width:150px">
+                        <f:selectItems value="#{dropdownView.testler}" />
+                    </p:selectOneMenu>
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Submit" update="fore" action="#{dropdownView.displayLocation}"  icon="ui-icon-check" />
+                </p:panel>
+            <h:panelGrid columns="1" cellpadding="5" id="fore">
+                <c:forEach  var="soru" items="#{dropdownView.li}">
+                 <p>#{soru.soru}</p>
+                 <h:panelGrid columns="1" cellpadding="5">
+                    <h:selectOneRadio value="#{soru.secilenCevap}" >
+                        <f:selectItem itemValue="#{soru.cevapCollection.get(0)}" itemLabel="#{soru.cevapCollection.get(0)}" />
+                        <f:selectItem itemValue="#{soru.cevapCollection.get(1)}" itemLabel="#{soru.cevapCollection.get(1)}" />
+                        <f:selectItem itemValue="#{soru.cevapCollection.get(2)}" itemLabel="#{soru.cevapCollection.get(2)}" />
+                        <f:selectItem itemValue="#{soru.cevapCollection.get(3)}" itemLabel="#{soru.cevapCollection.get(3)}" />
+                    </h:selectOneRadio>
+                </h:panelGrid>
+                </c:forEach>
+                </h:panelGrid>
+                        <p:commandButton value="Submit" action="goster.xhtml?faces-redirect=true"  icon="ui-icon-check" />
+
+        </h:form>
+    </h:body>
+</html>
+

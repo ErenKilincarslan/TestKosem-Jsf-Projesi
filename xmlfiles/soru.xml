@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sorular  kategori="Matematik" >
+   <sorum>
+      <soru>2*2*2</soru>
+      <cevap1>2</cevap1>
+      <cevap2>4</cevap2>
+      <cevap3>5</cevap3>
+      <cevap4>8</cevap4>
+      <dcevap>4</dcevap>
+   </sorum>
+   <sorum>
+      <soru>kök 9</soru>
+      <cevap1>9</cevap1>
+      <cevap2>1</cevap2>
+      <cevap3>2</cevap3>
+      <cevap4>3</cevap4>
+      <dcevap>4</dcevap>
+   </sorum>
+
+</sorular>
