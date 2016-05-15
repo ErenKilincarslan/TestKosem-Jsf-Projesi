@@ -9,13 +9,9 @@ package javaKodları;
  *
  * @author celal
  */
-import entity.Cevap;
-import entity.Dogrucevap;
 import entity.Kategori;
 import entity.Soru;
 import entity.Test;
-import entity.controller.CevapJpaController;
-import entity.controller.DogrucevapJpaController;
 import entity.controller.KategoriJpaController;
 import entity.controller.SoruJpaController;
 import entity.controller.TestJpaController;
@@ -64,8 +60,6 @@ public class FileUploadView {
     public void upload() {
         if (file != null) {
             String path = new File(".").getAbsolutePath();
-            FacesMessage message = new FacesMessage("Succesful", path + " is uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
             try {
                 save();
             } catch (IOException ex) {
@@ -77,7 +71,7 @@ public class FileUploadView {
     public void save() throws IOException {
         String filename = FilenameUtils.getName(getFile().getFileName());
         InputStream input = getFile().getInputstream();
-        File file = new File("C:\\Users\\celal\\OneDrive\\Belgeler\\NetBeansProjects\\TestKosem\\xmlfiles", filename);
+        File file = new File("C:\\Users\\celal\\OneDrive\\Belgeler\\NetBeansProjects\\TestKosem\\test-kosem\\xmlfiles", filename);
         OutputStream output = new FileOutputStream(file);
         try {
             IOUtils.copy(input, output);
@@ -89,6 +83,8 @@ public class FileUploadView {
     }
 
     private void parseXML(File xmlFile) {
+        FacesMessage message = new FacesMessage("Succesful", "parse" + " is uploaded.");
+        FacesContext.getCurrentInstance().addMessage(null, message);
         SAXBuilder builder = new SAXBuilder();
 
         try {
@@ -101,6 +97,9 @@ public class FileUploadView {
             KategoriJpaController kjp = new KategoriJpaController();
             kjp.getKategoriID(k);
 
+            FacesMessage message1 = new FacesMessage("Succesful", k.getKategori() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message1);
+
             Test test = new Test(k);
             TestJpaController tja = new TestJpaController();
             tja.addTest(test);
@@ -108,23 +107,16 @@ public class FileUploadView {
             for (int i = 0; i < list.size(); i++) {
 
                 Element node = (Element) list.get(i);
-                String s = node.getChildText("soru");
-                Soru soru = new Soru(s, test);
-                SoruJpaController sjc=new SoruJpaController();
+                String sorum = node.getChildText("soru");
+                String cevap1 = node.getChildText("cevap1");
+                String cevap2 = node.getChildText("cevap2");
+                String cevap3 = node.getChildText("cevap3");
+                String cevap4 = node.getChildText("cevap4");
+                int dogrucevap = Integer.parseInt(node.getChildText("dcevap"));
+
+                Soru soru = new Soru(sorum, cevap1, cevap2, cevap3, cevap4, dogrucevap, test);
+                SoruJpaController sjc = new SoruJpaController();
                 sjc.create(soru);
-                
-                int dogruCevapId = Integer.parseInt(node.getChildText("dcevap"));
-                
-                for (int j = 1; j < 5; j++) {
-                    Cevap c = new Cevap(node.getChildText("cevap" + j), soru);
-                    CevapJpaController cjc = new CevapJpaController();
-                    cjc.create(c);
-                    if (j == dogruCevapId) {
-                        Dogrucevap dogrucevap = new Dogrucevap(soru,c);
-                        DogrucevapJpaController djc=new DogrucevapJpaController();
-                        djc.create(dogrucevap);
-                    }
-                }
             }
 
         } catch (IOException io) {

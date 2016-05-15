@@ -12,12 +12,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javaKodları.Baglanti;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author celal
  */
+@SessionScoped
 public class TestJpaController {
     public void addTest(Test t){
         Baglanti b=new Baglanti();

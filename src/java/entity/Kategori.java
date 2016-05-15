@@ -7,17 +7,38 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author celal
  */
+@Entity
+@Table(name = "kategori")
+@NamedQueries({
+    @NamedQuery(name = "Kategori.findAll", query = "SELECT k FROM Kategori k")})
 public class Kategori implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "kategoriid")
     private Integer kategoriid;
+    @Size(max = 45)
+    @Column(name = "kategori")
     private String kategori;
+    @OneToMany(mappedBy = "kategoriid")
     private Collection<Test> testCollection;
 
     public Kategori() {
@@ -43,7 +64,6 @@ public class Kategori implements Serializable {
         this.kategori = kategori;
     }
 
-    @XmlTransient
     public Collection<Test> getTestCollection() {
         return testCollection;
     }
@@ -74,7 +94,7 @@ public class Kategori implements Serializable {
 
     @Override
     public String toString() {
-        return getKategori();
+        return "entity.Kategori[ kategoriid=" + kategoriid + " ]";
     }
     
 }

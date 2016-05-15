@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,24 +20,34 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author celal
  */
+@Entity
+@Table(name = "test")
+@NamedQueries({
+    @NamedQuery(name = "Test.findAll", query = "SELECT t FROM Test t")})
 public class Test implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "testid")
     private Integer testid;
+    @JoinColumn(name = "kategoriid", referencedColumnName = "kategoriid")
+    @ManyToOne
     private Kategori kategoriid;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "testid")
+    private Collection<Soru> soruCollection;
 
-    public Test() {
+    public Test(Kategori kategoriid) {
+        this.kategoriid = kategoriid;
     }
 
-    public Test( Kategori kategoriid) {
-        this.kategoriid = kategoriid;
+    public Test() {
     }
 
     public Test(Integer testid) {
@@ -58,6 +69,15 @@ public class Test implements Serializable {
     public void setKategoriid(Kategori kategoriid) {
         this.kategoriid = kategoriid;
     }
+
+    public Collection<Soru> getSoruCollection() {
+        return soruCollection;
+    }
+
+    public void setSoruCollection(Collection<Soru> soruCollection) {
+        this.soruCollection = soruCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -80,7 +100,7 @@ public class Test implements Serializable {
 
     @Override
     public String toString() {
-        return getTestid()+"";
+        return "entity.Test[ testid=" + testid + " ]";
     }
     
 }

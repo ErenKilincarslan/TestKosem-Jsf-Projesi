@@ -11,11 +11,14 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 
+@SessionScoped
+@ManagedBean
 public class KullanıcıManagedBean extends Baglanti implements Serializable {
     
     private Kullanıcı user;
@@ -46,8 +49,11 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
     public void init() {
         users = kullaniciListele();
     }
-
-    public String giris() {
+    public String getKullaniciAdiFromSession(HttpSession session){
+        Kullanıcı u=(Kullanıcı) session.getAttribute("user");
+        return u.getKullaniciAdi();
+    }
+    public String giris(HttpSession session) {
         baglan();
 
         boolean userVarMi = false;
@@ -69,6 +75,7 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
             return null;
         }
         if (userVarMi) {
+             session.setAttribute("user", user);
             if (userYetki == 1) {
                 return "admin/adminAnasayfa.xhtml?faces-redirect=true";
             } else {

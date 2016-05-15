@@ -6,27 +6,69 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
  * @author celal
  */
+@Entity
+@Table(name = "soru")
+@NamedQueries({
+    @NamedQuery(name = "Soru.findAll", query = "SELECT s FROM Soru s")})
 public class Soru implements Serializable {
-    private String secilenCevap;
-    private static final long serialVersionUID = 1L;
-    private Integer soruid;
-    private String soru;
-    private List<Cevap> cevapCollection;
-    private Collection<Dogrucevap> dogrucevapCollection;
-    private Test test;
 
-    public Soru(Integer soruid, String soru) {
-        this.soruid = soruid;
-        this.soru = soru;
-    }
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "soruid")
+    private Integer soruid;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 500)
+    @Column(name = "soru")
+    private String soru;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
+    @Column(name = "cevap1")
+    private String cevap1;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
+    @Column(name = "cevap2")
+    private String cevap2;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
+    @Column(name = "cevap3")
+    private String cevap3;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 200)
+    @Column(name = "cevap4")
+    private String cevap4;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "dogrucevap")
+    private int dogrucevap;
+    @JoinColumn(name = "testid", referencedColumnName = "testid")
+    @ManyToOne(optional = false)
+    private Test testid;
+    private String secilenCevap;
 
     public String getSecilenCevap() {
         return secilenCevap;
@@ -35,16 +77,31 @@ public class Soru implements Serializable {
     public void setSecilenCevap(String secilenCevap) {
         this.secilenCevap = secilenCevap;
     }
+    public Soru() {
+    }
 
-   
-
-    public Soru(String soru, Test testid) {
+    public Soru(int soruid,String soru, String cevap1, String cevap2, String cevap3, String cevap4, int dogrucevap) {
+        this.soruid=soruid;
         this.soru = soru;
-        this.test = testid;
+        this.cevap1 = cevap1;
+        this.cevap2 = cevap2;
+        this.cevap3 = cevap3;
+        this.cevap4 = cevap4;
+        this.dogrucevap = dogrucevap;
     }
 
     public Soru(Integer soruid) {
         this.soruid = soruid;
+    }
+
+    public Soru(String soru, String cevap1, String cevap2, String cevap3, String cevap4, int dogrucevap,Test test) {
+        this.soru = soru;
+        this.cevap1 = cevap1;
+        this.cevap2 = cevap2;
+        this.cevap3 = cevap3;
+        this.cevap4 = cevap4;
+        this.dogrucevap = dogrucevap;
+        this.testid=test;
     }
 
     public Integer getSoruid() {
@@ -63,31 +120,53 @@ public class Soru implements Serializable {
         this.soru = soru;
     }
 
-    public List<Cevap> getCevapCollection() {
-        return cevapCollection;
+    public String getCevap1() {
+        return cevap1;
     }
 
-    public void setCevapCollection(List<Cevap> cevapCollection) {
-        this.cevapCollection = cevapCollection;
+    public void setCevap1(String cevap1) {
+        this.cevap1 = cevap1;
     }
 
-    public Collection<Dogrucevap> getDogrucevapCollection() {
-        return dogrucevapCollection;
+    public String getCevap2() {
+        return cevap2;
     }
 
-    public void setDogrucevapCollection(Collection<Dogrucevap> dogrucevapCollection) {
-        this.dogrucevapCollection = dogrucevapCollection;
+    public void setCevap2(String cevap2) {
+        this.cevap2 = cevap2;
     }
 
-    public Test getTest() {
-        return test;
+    public String getCevap3() {
+        return cevap3;
     }
 
-    public void setTest(Test test) {
-        this.test = test;
+    public void setCevap3(String cevap3) {
+        this.cevap3 = cevap3;
     }
 
-  
+    public String getCevap4() {
+        return cevap4;
+    }
+
+    public void setCevap4(String cevap4) {
+        this.cevap4 = cevap4;
+    }
+
+    public int getDogrucevap() {
+        return dogrucevap;
+    }
+
+    public void setDogrucevap(int dogrucevap) {
+        this.dogrucevap = dogrucevap;
+    }
+
+    public Test getTestid() {
+        return testid;
+    }
+
+    public void setTestid(Test testid) {
+        this.testid = testid;
+    }
 
     @Override
     public int hashCode() {
@@ -111,7 +190,7 @@ public class Soru implements Serializable {
 
     @Override
     public String toString() {
-        return getSoru();
+        return "entity.Soru[ soruid=" + soruid + " ]";
     }
     
 }

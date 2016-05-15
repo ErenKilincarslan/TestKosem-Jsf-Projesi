@@ -6,7 +6,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,25 +14,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author celal
  */
+@Entity
+@Table(name = "kullanici")
+@NamedQueries({
+    @NamedQuery(name = "Kullanici.findAll", query = "SELECT k FROM Kullanici k")})
 public class Kullanici implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
     private Integer id;
+    @Size(max = 45)
+    @Column(name = "adi")
     private String adi;
+    @Size(max = 45)
+    @Column(name = "soyadi")
     private String soyadi;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 45)
+    @Column(name = "email")
     private String email;
+    @Size(max = 45)
+    @Column(name = "kullaniciadi")
     private String kullaniciadi;
+    @Size(max = 45)
+    @Column(name = "sifre")
     private String sifre;
+    @Column(name = "yetki")
     private Integer yetki;
 
     public Kullanici() {

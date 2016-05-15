@@ -1,6 +1,7 @@
 
-package javaKodları;
+package entity.controller;
 
+import javaKodları.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.faces.bean.SessionScoped;
@@ -8,10 +9,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 class Baglanti {
 
-    private static final String SERVER = "jdbc:mysql://localhost:3306/testkosem";
-    private static final String KULLANICIADI = "root";
-    private static final String SIFRE = "1234";
-    Connection conn = null;
+    public static final String SERVER = "jdbc:mysql://localhost:3306/testkosem";
+    public static final String KULLANICIADI = "root";
+    public static final String SIFRE = "1234";
+    public Connection conn = null;
 
     public void baglan() {
         try {

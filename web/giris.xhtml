@@ -48,7 +48,7 @@ and open the template in the editor.
                                             <span>Sifreniz:</span>
                                             <h:inputSecret class="inputText" id="sifre" value="#{KullaniciManagedBean.user.sifre}"></h:inputSecret>
                                         </div>
-                                        <h:commandButton class="inputText" action="#{KullaniciManagedBean.giris()}" value="Giris"></h:commandButton>
+                                        <h:commandButton class="inputText" action="#{KullaniciManagedBean.giris(session)}" value="Giris"></h:commandButton>
                                         <h:message id="mesaj" for="ad"></h:message>
                                         <span>Eğer sayfamıza üye değilseniz <a href="uyeOl.xhtml">buraya</a> tıklayarak üye olabilirsiniz.</span>
                                     </h:panelGrid>

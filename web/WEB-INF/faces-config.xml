@@ -8,15 +8,15 @@
         <managed-bean-class>javaKodları.KullanıcıManagedBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>dropdownView</managed-bean-name>
+        <managed-bean-class>javaKodları.DropdownView</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
     <application>
         <resource-bundle>
             <base-name>/Bundle</base-name>
             <var>bundle</var>
         </resource-bundle>
     </application>
-    <managed-bean>
-        <managed-bean-name>dropdownView</managed-bean-name>
-        <managed-bean-class>javaKodları.DropdownView</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
 </faces-config>

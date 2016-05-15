@@ -13,12 +13,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javaKodları.Baglanti;
+
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author celal
  */
+@SessionScoped
 public class KategoriJpaController implements Serializable {
 
     public KategoriJpaController() {

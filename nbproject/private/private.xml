@@ -3,21 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/javaKodları/KullanıcıManagedBean.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/javaKodları/DropdownView.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/sorular.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/admin/addXml.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/newjsf.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/entity/controller/SoruJpaController.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/uyeOl.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/entity/Cevap.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/giris.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/entity/controller/CevapJpaController.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/testcöz.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/entity/Soru.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/goster.xhtml</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/src/java/javaKodları/FileUploadView.java</file>
-            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/web/kullaniciSolHeader.xhtml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/entity/Kullanici.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/entity/Kategori.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/javaKodları/DropdownView.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/entity/controller/TestJpaController.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/entity/controller/SoruJpaController.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/javaKodları/FileUploadView.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/web/sorular.xhtml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/web/newjsf.xhtml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/web/testcöz.xhtml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/web/WEB-INF/glassfish-resources.xml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/entity/Test.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/java/entity/Soru.java</file>
+            <file>file:/C:/Users/celal/OneDrive/Belgeler/NetBeansProjects/TestKosem/test-kosem/src/conf/persistence.xml</file>
         </group>
     </open-files>
 </project-private>
