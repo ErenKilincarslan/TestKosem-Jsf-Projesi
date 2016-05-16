@@ -69,6 +69,15 @@ public class Soru implements Serializable {
     @ManyToOne(optional = false)
     private Test testid;
     private String secilenCevap;
+    private String dogruCevapString;
+
+    public String getDogruCevapString() {
+        return dogruCevapString;
+    }
+
+    public void setDogruCevapString(String dogruCevapString) {
+        this.dogruCevapString = dogruCevapString;
+    }
 
     public String getSecilenCevap() {
         return secilenCevap;
@@ -77,31 +86,47 @@ public class Soru implements Serializable {
     public void setSecilenCevap(String secilenCevap) {
         this.secilenCevap = secilenCevap;
     }
+
     public Soru() {
     }
 
-    public Soru(int soruid,String soru, String cevap1, String cevap2, String cevap3, String cevap4, int dogrucevap) {
-        this.soruid=soruid;
+    public Soru(int soruid, String soru, String cevap1, String cevap2, String cevap3, String cevap4, int dogrucevap) {
+        this.soruid = soruid;
         this.soru = soru;
         this.cevap1 = cevap1;
         this.cevap2 = cevap2;
         this.cevap3 = cevap3;
         this.cevap4 = cevap4;
         this.dogrucevap = dogrucevap;
+        switch (dogrucevap) {
+            case 1:
+                dogruCevapString = cevap1;
+                break;
+            case 2:
+                dogruCevapString = cevap2;
+                break;
+            case 3:
+                dogruCevapString = cevap3;
+                break;
+            default:
+                dogruCevapString = cevap4;
+                break;
+        }
+
     }
 
     public Soru(Integer soruid) {
         this.soruid = soruid;
     }
 
-    public Soru(String soru, String cevap1, String cevap2, String cevap3, String cevap4, int dogrucevap,Test test) {
+    public Soru(String soru, String cevap1, String cevap2, String cevap3, String cevap4, int dogrucevap, Test test) {
         this.soru = soru;
         this.cevap1 = cevap1;
         this.cevap2 = cevap2;
         this.cevap3 = cevap3;
         this.cevap4 = cevap4;
         this.dogrucevap = dogrucevap;
-        this.testid=test;
+        this.testid = test;
     }
 
     public Integer getSoruid() {
@@ -192,5 +217,5 @@ public class Soru implements Serializable {
     public String toString() {
         return "entity.Soru[ soruid=" + soruid + " ]";
     }
-    
+
 }

@@ -20,7 +20,7 @@ import org.primefaces.event.RowEditEvent;
 @SessionScoped
 @ManagedBean
 public class KullanıcıManagedBean extends Baglanti implements Serializable {
-    
+
     private Kullanıcı user;
     private List<Kullanıcı> users;
 
@@ -49,10 +49,11 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
     public void init() {
         users = kullaniciListele();
     }
-    public String getKullaniciAdiFromSession(HttpSession session){
-        Kullanıcı u=(Kullanıcı) session.getAttribute("user");
-        return u.getKullaniciAdi();
+
+    public Kullanıcı getUserFromSession(HttpSession session) {
+        return (Kullanıcı) session.getAttribute("user");
     }
+
     public String giris(HttpSession session) {
         baglan();
 
@@ -63,11 +64,21 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
             ps.setString(1, user.getKullaniciAdi());
             ps.setString(2, user.getSifre());
             ResultSet rs = ps.executeQuery();
-            
+            Kullanıcı girisKullanıcı;
             while (rs.next()) {
                 if (user.getKullaniciAdi().equals(rs.getString("kullaniciadi"))
                         && user.getSifre().equals(rs.getString("sifre"))) {
                     userVarMi = true;
+                    girisKullanıcı = new Kullanıcı(
+                            rs.getInt(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getString(6),
+                            rs.getInt(7));
+                    session.setAttribute("user", girisKullanıcı);
+
                     userYetki = rs.getInt("yetki");
                 }
             }
@@ -75,7 +86,6 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
             return null;
         }
         if (userVarMi) {
-             session.setAttribute("user", user);
             if (userYetki == 1) {
                 return "admin/adminAnasayfa.xhtml?faces-redirect=true";
             } else {
@@ -106,7 +116,7 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
         }
         return "kayitTamamlandi.xhtml";
     }
-    
+
     private List<Kullanıcı> kullaniciListele() {
         List<Kullanıcı> liste = new ArrayList<>();
         baglan();

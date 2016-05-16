@@ -12,11 +12,13 @@ import java.util.List;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class DropdownView implements Serializable {
 
     private Map<String, Map<String, String>> data = new HashMap<>();
@@ -26,6 +28,7 @@ public class DropdownView implements Serializable {
     private Map<String, String> testler;
 
     public DropdownView() {
+        li = null;
         kategoriler = new HashMap<>();
         KategoriJpaController kjc = new KategoriJpaController();
         TestJpaController tjc = new TestJpaController();
@@ -90,19 +93,20 @@ public class DropdownView implements Serializable {
         this.li = li;
     }
 
-    public void displayLocation() {
+    public String displayLocation() {
         String k;
         String te;
-        FacesMessage message1 = new FacesMessage("Succesful", test1+kategori + " is uploaded.");
-        FacesContext.getCurrentInstance().addMessage(null, message1);
         if (test1 != null && kategori != null) {
             k = kategori;
             te = test1;
 
             SoruJpaController sjc = new SoruJpaController();
             li = sjc.getAllSoruFromTestID(te);
-
+            return "sorular.xhtml?faces-redirect=true";
+        } else {
+            FacesMessage message1 = new FacesMessage("Error", "Lütfen kaegori ve/veya test seçiniz");
+            FacesContext.getCurrentInstance().addMessage(null, message1);
+            return null;
         }
-        
     }
 }

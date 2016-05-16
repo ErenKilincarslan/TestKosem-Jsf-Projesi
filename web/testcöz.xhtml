@@ -10,42 +10,30 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <p:growl id="msgs" showDetail="true" />
         <h:form>
-            <p:growl id="msgs" showDetail="true" />
-            
-            <p:panel header="Select a Location" style="margin-bottom:10px;">
-                <h:panelGrid columns="2" cellpadding="5">
-                    <p:outputLabel for="kategori" value="Kategori: " />
 
-                    <p:selectOneMenu id="kategori" value="#{dropdownView.kategori}" style="width:150px">
-                        <p:ajax listener="#{dropdownView.onKategoriChange}" update="test" />
-                        <f:selectItem itemLabel="Select Kategori" itemValue="" noSelectionOption="true" />
-                        <f:selectItems value="#{dropdownView.kategoriler}" />
-                    </p:selectOneMenu>
+            <div class="sorupaneli1">
+                <p:panel header="Select a Location" class="sorupaneli"  style="margin-bottom:10px;">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel for="kategori" value="Kategori: " />
 
-                    <p:outputLabel for="test" value="Test " />
-                    <p:selectOneMenu id="test" value="#{dropdownView.test1}" style="width:150px">
-                        <f:selectItem itemLabel="Select Test" itemValue="" noSelectionOption="true" />
-                        <f:selectItems value="#{dropdownView.testler}" />
-                    </p:selectOneMenu>
-                </h:panelGrid>
-                <p:separator />
-                <p:commandButton value="Submit" update="fore" action="#{dropdownView.displayLocation}"  icon="ui-icon-check" />
-            </p:panel>
-            <h:panelGrid columns="1" cellpadding="5" id="fore">
-                <c:forEach  var="soru" items="#{dropdownView.li}">
-                    <p>#{soru.soru}</p>
-                    <h:panelGrid columns="1" cellpadding="5" >
-                        <h:selectOneRadio value="#{soru.secilenCevap}" layout="pageDirection">
-                            <f:selectItem itemValue="#{soru.cevap1}" itemLabel="#{soru.cevap1}" />
-                            <f:selectItem itemValue="#{soru.cevap2}" itemLabel="#{soru.cevap2}" />
-                            <f:selectItem itemValue="#{soru.cevap3}" itemLabel="#{soru.cevap3}" />
-                            <f:selectItem itemValue="#{soru.cevap4}" itemLabel="#{soru.cevap4}" />
-                        </h:selectOneRadio>
+                        <p:selectOneMenu id="kategori" value="#{dropdownView.kategori}" style="width:150px">
+                            <p:ajax listener="#{dropdownView.onKategoriChange}" update="test" />
+                            <f:selectItem itemLabel="Select Kategori" itemValue="" noSelectionOption="true" />
+                            <f:selectItems value="#{dropdownView.kategoriler}" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="test" value="Test " />
+                        <p:selectOneMenu id="test" value="#{dropdownView.test1}" style="width:150px">
+                            <f:selectItem itemLabel="Select Test" itemValue="" noSelectionOption="true" />
+                            <f:selectItems value="#{dropdownView.testler}" />
+                        </p:selectOneMenu>
                     </h:panelGrid>
-                </c:forEach>
-            </h:panelGrid>
-            <p:commandButton value="Submit" action="goster.xhtml?faces-redirect=true"  icon="ui-icon-check" />
+                    <p:separator />
+                    <p:commandButton  id="btn_testgetir" value="Testi Getir"  action="#{dropdownView.displayLocation}"  icon="ui-icon-check" />
+                </p:panel>
+            </div>
 
         </h:form>
     </h:body>
