@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="admin/resources/css/bootstrap.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="admin/resources/css/font-awesome.min.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="admin/resources/css/sitecss.css" type="text/css" media="all"/>
+    </h:head>
+    <h:body>
+        <ui:include src="kullaniciSolHeader.xhtml"/>
+        <div >
+            <h:form id="form">
+                <p:growl id="messages" showDetail="true" />
+                <p:dataTable style="margin-left: 20%;margin-right: 5%;margin-top: 5%" id="rowEditingTable" var="testler" value="#{dropdownView.getCözdüğümTestler(session)}"  
+                             paginator="true" rows="10" paginatorPosition="bottom"  
+                             editable="true" >  
+                    <f:facet name="header">  
+                        Row Editing  
+                    </f:facet>  
+
+                    <p:column headerText="gecmis id">
+                        <h:outputText value="#{testler.gid}" />
+                    </p:column>
+                    <p:column headerText="TestId">
+                        <h:outputText value="#{testler.testID}" />
+                    </p:column>
+                    <p:column headerText="Kategori">
+                        <h:outputText value="#{testler.kategori}" />
+                    </p:column>
+                    <p:column headerText="Cevaplar">
+                        <h:outputText value="#{testler.testgecmisi}" />
+                    </p:column>
+                    <p:column headerText="tarih">
+                        <h:outputText value="#{testler.tarih}" />
+                    </p:column>
+                    <p:column>
+                        
+                        <h:commandLink value="Testi Göster" 
+                                       action="#{dropdownView.testGecmisiGoster(testler)}"/>
+                    </p:column>
+                  
+                </p:dataTable>  
+
+                <p:spacer height="20"/>  
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+

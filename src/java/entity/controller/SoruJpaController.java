@@ -68,6 +68,7 @@ public class SoruJpaController {
                         rs.getString(6),
                         rs.getString(7), 
                         rs.getInt(8));
+                s.setSoruNo(list.size()+1);
                 list.add(s);
             }
         } catch (SQLException ex) {

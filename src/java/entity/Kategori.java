@@ -94,7 +94,7 @@ public class Kategori implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Kategori[ kategoriid=" + kategoriid + " ]";
+        return getKategori();
     }
     
 }

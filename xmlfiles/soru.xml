@@ -1,20 +1,91 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<sorular  kategori="Matematik" >
+<sorular  kategori="Tarih" >
    <sorum>
-      <soru>2*2*2</soru>
-      <cevap1>2</cevap1>
-      <cevap2>4</cevap2>
-      <cevap3>5</cevap3>
-      <cevap4>8</cevap4>
+      <soru>T.C nin kurucusu kimdir</soru>
+      <cevap1>Mustafa Kemal ATATÜRK</cevap1>
+      <cevap2>İsmet İnönü</cevap2>
+      <cevap3>Celal Bayar</cevap3>
+      <cevap4>Süleyman Demirel</cevap4>
+      <dcevap>1</dcevap>
+   </sorum>
+   <sorum>
+      <soru>Malazgirt Meydan Savaşı kaç yılında gerçekleşmiştir</soru>
+      <cevap1>1453</cevap1>
+      <cevap2>1077</cevap2>
+      <cevap3>1213</cevap3>
+      <cevap4>809</cevap4>
+      <dcevap>2</dcevap>
+   </sorum>
+   <sorum>
+      <soru>İstanbul'u fetheden Osmanlı padişahı kimdir</soru>
+      <cevap1>Kanuni Sultan Süleyman</cevap1>
+      <cevap2>Genç Osman</cevap2>
+      <cevap3>IV.Murat</cevap3>
+      <cevap4>Fatih Sultan Mehmet</cevap4>
       <dcevap>4</dcevap>
    </sorum>
    <sorum>
-      <soru>kök 9</soru>
-      <cevap1>9</cevap1>
-      <cevap2>1</cevap2>
-      <cevap3>2</cevap3>
-      <cevap4>3</cevap4>
+      <soru>İstanbulun Fethi kaç yılında gerçekleşmiştir</soru>
+      <cevap1>1077</cevap1>
+      <cevap2>1453</cevap2>
+      <cevap3>1213</cevap3>
+      <cevap4>809</cevap4>
+      <dcevap>2</dcevap>
+   </sorum>
+   <sorum>
+      <soru>Yeniçeri Ocağını kapatmak isteyince , yeniçeriler tarafından öldürülen Osmanlı padişahı kimdir</soru>
+      <cevap1>Kanuni Sultan Süleyman</cevap1>
+      <cevap2>Genç Osman</cevap2>
+      <cevap3>IV.Murat</cevap3>
+      <cevap4>Fatih Sultan Mehmet</cevap4>
+      <dcevap>2</dcevap>
+   </sorum>
+   <sorum>
+      <soru>1.Meşrutiyet hangi yılda ilan edilmiştir</soru>
+      <cevap1>1813</cevap1>
+      <cevap2>1855</cevap2>
+      <cevap3>1876</cevap3>
+      <cevap4>1892</cevap4>
+      <dcevap>3</dcevap>
+   </sorum>
+   <sorum>
+      <soru>1.Meşrutiyeti ilan eden Osmanlı padişahı kimdir</soru>
+      <cevap1>Kanuni Sultan Süleyman</cevap1>
+      <cevap2>V. Murat</cevap2>
+      <cevap3>I. Abdülhamit</cevap3>
+      <cevap4>II. Abdülhamit</cevap4>
       <dcevap>4</dcevap>
    </sorum>
-
+   <sorum>
+      <soru>Aşağıdakilerden hangisi osmanlı akımlarından değildir</soru>
+      <cevap1>Inkılapçılık</cevap1>
+      <cevap2>Osmanlıcılık</cevap2>
+      <cevap3>Türkçülük</cevap3>
+      <cevap4>İslamcılık</cevap4>
+      <dcevap>1</dcevap>
+   </sorum>
+   <sorum>
+      <soru>Aşağıdakilerden hangisi İstanbulun fethi sonuçlarından değildir</soru>
+      <cevap1>Bizans imparatorluğu sona erdi</cevap1>
+      <cevap2>Başkent Edirne'den İstanbul'a alındı</cevap2>
+      <cevap3>Orta Çağ kapandı , Yeni Çağ açıldı</cevap3>
+      <cevap4>Balkan toprakları Osmanlıya katıldı</cevap4>
+      <dcevap>4</dcevap>
+   </sorum>
+   <sorum>
+      <soru>Halifelik kaç yılında kaldırıldı</soru>
+      <cevap1>1919</cevap1>
+      <cevap2>1924</cevap2>
+      <cevap3>1930</cevap3>
+      <cevap4>1931</cevap4>
+      <dcevap>2</dcevap>
+   </sorum>
+   <sorum>
+      <soru>İstanbul'u fetheden Osmanlı padişahı kimdir</soru>
+      <cevap1>Kanuni Sultan Süleyman</cevap1>
+      <cevap2>Genç Osman</cevap2>
+      <cevap3>IV.Murat</cevap3>
+      <cevap4>Fatih Sultan Mehmet</cevap4>
+      <dcevap>4</dcevap>
+   </sorum>
 </sorular>

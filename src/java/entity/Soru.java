@@ -70,7 +70,16 @@ public class Soru implements Serializable {
     private Test testid;
     private String secilenCevap;
     private String dogruCevapString;
+    private int soruNo;
 
+    public int getSoruNo() {
+        return soruNo;
+    }
+
+    public void setSoruNo(int soruNo) {
+        this.soruNo = soruNo;
+    }
+    
     public String getDogruCevapString() {
         return dogruCevapString;
     }

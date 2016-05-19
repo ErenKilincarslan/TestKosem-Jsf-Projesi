@@ -1,12 +1,15 @@
 package javaKodları;
 
+import entity.Gecmis;
 import entity.Kategori;
 import entity.Soru;
 import entity.Test;
+import entity.controller.GecmisController;
 import entity.controller.KategoriJpaController;
 import entity.controller.SoruJpaController;
 import entity.controller.TestJpaController;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +19,11 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 @ViewScoped
-public class DropdownView implements Serializable {
+public class DropdownView {
 
     private Map<String, Map<String, String>> data = new HashMap<>();
     private String kategori;
@@ -91,6 +95,40 @@ public class DropdownView implements Serializable {
 
     public void setLi(List<Soru> li) {
         this.li = li;
+    }
+
+    public List<Gecmis> getCözdüğümTestler(HttpSession session) {
+        GecmisController test = new GecmisController();
+        return test.getAllTestFromKullaniciId(getUserFromSession(session).getKullaniciid());
+
+    }
+
+    public String gecmisEkle(HttpSession session) {
+        GecmisController gc = new GecmisController();
+        gc.gecmisEkle(li, getUserFromSession(session).getKullaniciid(), test1);
+        return "goster.xhtml?faces-redirect=true";
+    }
+
+    public Kullanıcı getUserFromSession(HttpSession session) {
+        return (Kullanıcı) session.getAttribute("user");
+    }
+
+    public String testGecmisiGoster(Gecmis gecmis) {
+        SoruJpaController sjc = new SoruJpaController();
+        li = sjc.getAllSoruFromTestID(gecmis.getTestID() + "");
+        String verilenCevap = gecmis.getTestgecmisi();
+        for (int i = 0; i < verilenCevap.length(); i++) {
+            if (verilenCevap.charAt(i) == '1') {
+                li.get(i).setSecilenCevap(li.get(i).getCevap1());
+            } else if (verilenCevap.charAt(i) == '2') {
+                li.get(i).setSecilenCevap(li.get(i).getCevap2());
+            } else if (verilenCevap.charAt(i) == '3') {
+                li.get(i).setSecilenCevap(li.get(i).getCevap3());
+            } else if (verilenCevap.charAt(i) == '4') {
+                li.get(i).setSecilenCevap(li.get(i).getCevap4());
+            }
+        }
+        return "goster.xhtml?faces-redirect=true";
     }
 
     public String displayLocation() {

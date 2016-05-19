@@ -50,7 +50,7 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
         users = kullaniciListele();
     }
 
-    public Kullanıcı getUserFromSession(HttpSession session) {
+    public static Kullanıcı getUserFromSession(HttpSession session) {
         return (Kullanıcı) session.getAttribute("user");
     }
 

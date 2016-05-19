@@ -20,27 +20,29 @@ import javax.faces.bean.SessionScoped;
  */
 @SessionScoped
 public class TestJpaController {
-    public void addTest(Test t){
-        Baglanti b=new Baglanti();
+
+    public void addTest(Test t) {
+        Baglanti b = new Baglanti();
         try {
             b.baglan();
-            PreparedStatement ps=b.conn.prepareStatement(
+            PreparedStatement ps = b.conn.prepareStatement(
                     "insert into test (kategoriid) values (?)",
                     PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, t.getKategoriid().getKategoriid());
             ps.executeUpdate();
-            ResultSet rs=ps.getGeneratedKeys();
-            if(rs.next())
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
                 t.setTestid(rs.getInt(1));
+            }
         } catch (SQLException ex) {
             throw new Error(ex.getMessage());
 
-        }
-        finally{
+        } finally {
             b.baglantiKes();
         }
     }
-    public List<Test> getAllTestFromKategori(Kategori kategori){
+
+    public List<Test> getAllTestFromKategori(Kategori kategori) {
         Baglanti b = new Baglanti();
         List<Test> list = new ArrayList<>();
         try {
@@ -49,16 +51,38 @@ public class TestJpaController {
             ps.setInt(1, kategori.getKategoriid());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Test t=new  Test();
+                Test t = new Test();
                 t.setKategoriid(kategori);
                 t.setTestid(rs.getInt(1));
                 list.add(t);
             }
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             throw new Error(ex.getMessage());
         } finally {
             b.baglantiKes();
         }
         return list;
     }
+
+    public Kategori getKategoriFromTestID(int testid) {
+        Baglanti b = new Baglanti();
+        Kategori k;
+        try {
+            b.baglan();
+            PreparedStatement ps = b.conn.prepareStatement("select * from kategori where kategoriid=(Select kategoriid from test where testid=?)");
+            ps.setInt(1, testid);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            k = new Kategori();
+            k.setKategoriid(rs.getInt(1));
+            k.setKategori(rs.getString(2));
+
+        } catch (SQLException ex) {
+            throw new Error(ex.getMessage());
+        } finally {
+            b.baglantiKes();
+        }
+        return k;
+    }
+
 }

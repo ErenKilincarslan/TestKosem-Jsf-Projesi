@@ -4,11 +4,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
         <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="admin/resources/css/sitecss.css" type="text/css" media="all"/>
+
         <style>
             #red{
                 color: red;
@@ -19,128 +22,120 @@
         </style>
     </h:head>
     <h:body>
+
+        <ui:include src="kullaniciSolHeader.xhtml"/>
         <p:growl id="msgs" showDetail="true" />
-        <h:form>
+        <div style="margin-left: 275px;margin-top:70px;">
+            <h:form>
+                <c:forEach  var="soru" items="#{dropdownView.li}">
 
+                    <h:panelGrid columns="1" cellpadding="0" >
 
-            <c:forEach  var="soru" items="#{dropdownView.li}">
-
-                <h:panelGrid columns="1" cellpadding="0" >
-
-                    <c:choose>
-                        <c:when test="#{soru.dogruCevapString.equals(soru.secilenCevap)}">
-                            <span class="label label-warning">#{soru.soru} </span>&emsp; &emsp;<img src="images/tik.png"/>
-
-                            <c:choose>
-                                <c:when test="#{soru.dogrucevap==1}">
-                                    <span class="label label-success">#{soru.cevap1}</span>
-
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap1}</span>
-
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="#{soru.dogrucevap==2}">
-                                    <span class="label label-success">#{soru.cevap2}</span>
-
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap2}</span>
-
-                                </c:otherwise>
-                            </c:choose><c:choose>
-                                <c:when test="#{soru.dogrucevap==3}">
-                                    <span class="label label-success">#{soru.cevap3}</span>
-
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap3}</span>
-
-                                </c:otherwise>
-                            </c:choose><c:choose>
-                                <c:when test="#{soru.dogrucevap==4}">
-                                    <span class="label label-success">#{soru.cevap4}</span>
-
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap4}</span>
-
-                                </c:otherwise>
-                            </c:choose>
-                        </c:when>
-
-                        <c:otherwise>
-                            <span class="label label-warning">#{soru.soru}</span> &emsp;&emsp;<img src="images/yanlıs.png"/>
-                            <c:choose>
-                                <c:when test="#{soru.cevap1.equals(soru.secilenCevap) || soru.dogrucevap==1}">
-                                    <c:if test="#{soru.cevap1.equals(soru.secilenCevap)}">
-                                        <span class="label label-danger">#{soru.cevap1}</span>
-
-                                    </c:if>
-                                    <c:if test="#{soru.dogrucevap==1}">
+                        <c:choose>
+                            <c:when test="#{soru.dogruCevapString.equals(soru.secilenCevap)}">
+                                <span class="label label-warning">#{soru.soru} </span>&emsp; &emsp;<img src="images/tik.png"/>
+                                <c:choose>
+                                    <c:when test="#{soru.dogrucevap==1}">
                                         <span class="label label-success">#{soru.cevap1}</span>
-
-                                    </c:if>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap1}</span>
-
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="#{soru.cevap2.equals(soru.secilenCevap) || soru.dogrucevap==2}">
-                                    <c:if test="#{soru.cevap2.equals(soru.secilenCevap)}">
-                                        <span class="label label-danger">#{soru.cevap2}</span>
-
-                                    </c:if>
-                                    <c:if test="#{soru.dogrucevap==2}">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap1}</span>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="#{soru.dogrucevap==2}">
                                         <span class="label label-success">#{soru.cevap2}</span>
-                                    </c:if>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap2}</span>
-
-                                </c:otherwise>
-                            </c:choose>
-
-                            <c:choose>
-                                <c:when test="#{soru.cevap3.equals(soru.secilenCevap) || soru.dogrucevap==3}">
-                                    <c:if test="#{soru.cevap3.equals(soru.secilenCevap)}">
-                                        <span class="label label-danger">#{soru.cevap3}</span>
-                                    </c:if>
-                                    <c:if test="#{soru.dogrucevap==3}">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap2}</span>
+                                    </c:otherwise>
+                                </c:choose><c:choose>
+                                    <c:when test="#{soru.dogrucevap==3}">
                                         <span class="label label-success">#{soru.cevap3}</span>
-                                    </c:if>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label label-default">#{soru.cevap3}</span>
-                                </c:otherwise>
-                            </c:choose>
-
-                            <c:choose>
-                                <c:when test="#{soru.cevap4.equals(soru.secilenCevap) || soru.dogrucevap==4}">
-                                    <c:if test="#{soru.cevap4.equals(soru.secilenCevap)}">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap3}</span>
+                                    </c:otherwise>
+                                </c:choose><c:choose>
+                                    <c:when test="#{soru.dogrucevap==4}">
                                         <span class="label label-success">#{soru.cevap4}</span>
-                                    </c:if>
-                                    <c:if test="#{soru.dogrucevap==4}">
-                                        <span class="label label-success">#{soru.cevap4}</span>
-                                    </c:if>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="label">#{soru.cevap4}</span>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:otherwise>
-                    </c:choose>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap4}</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:when>
 
-                </h:panelGrid>
-            </c:forEach>
+                            <c:otherwise>
+                                <span class="label label-warning">#{soru.soru}</span> &emsp;&emsp;<img src="images/yanlıs.png"/>
+                                <c:choose>
+                                    <c:when test="#{soru.cevap1.equals(soru.secilenCevap) || soru.dogrucevap==1}">
+                                        <c:if test="#{soru.cevap1.equals(soru.secilenCevap)}">
+                                            <span class="label label-danger">#{soru.cevap1}</span>
+                                        </c:if>
+                                        <c:if test="#{soru.dogrucevap==1}">
+                                            <span class="label label-success">#{soru.cevap1}</span>
+                                        </c:if>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap1}</span>
 
-            <p:commandButton  value="Testi Bitir" id="testi_bitir" action="goster.xhtml?faces-redirect=true"  icon="ui-icon-check" />
-            <p:commandButton   value="Tekrar seç"  id="tekrar_sec" action="testcöz.xhtml?faces-redirect=true"  icon="ui-icon-check" />
-        </h:form>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="#{soru.cevap2.equals(soru.secilenCevap) || soru.dogrucevap==2}">
+                                        <c:if test="#{soru.cevap2.equals(soru.secilenCevap)}">
+                                            <span class="label label-danger">#{soru.cevap2}</span>
+
+                                        </c:if>
+                                        <c:if test="#{soru.dogrucevap==2}">
+                                            <span class="label label-success">#{soru.cevap2}</span>
+                                        </c:if>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap2}</span>
+
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <c:choose>
+                                    <c:when test="#{soru.cevap3.equals(soru.secilenCevap) || soru.dogrucevap==3}">
+                                        <c:if test="#{soru.cevap3.equals(soru.secilenCevap)}">
+                                            <span class="label label-danger">#{soru.cevap3}</span>
+                                        </c:if>
+                                        <c:if test="#{soru.dogrucevap==3}">
+                                            <span class="label label-success">#{soru.cevap3}</span>
+                                        </c:if>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap3}</span>
+                                    </c:otherwise>
+                                </c:choose>
+
+                                <c:choose>
+                                    <c:when test="#{soru.cevap4.equals(soru.secilenCevap) || soru.dogrucevap==4}">
+                                        <c:if test="#{soru.cevap4.equals(soru.secilenCevap)}">
+                                            <span class="label label-danger">#{soru.cevap4}</span>
+                                        </c:if>
+                                        <c:if test="#{soru.dogrucevap==4}">
+                                            <span class="label label-success">#{soru.cevap4}</span>
+                                        </c:if>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="label label-default">#{soru.cevap4}</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </h:panelGrid>
+                    <br/>
+                    
+
+                </c:forEach>
+                <p:commandButton   value="Tekrar test Çöz"  id="tekrar_sec" action="testcöz.xhtml?faces-redirect=true"  icon="ui-icon-check" />
+            </h:form>
+        </div>
     </h:body>
 </html>
 

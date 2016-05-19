@@ -5,19 +5,26 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
 
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="admin/resources/css/bootstrap.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="admin/resources/css/font-awesome.min.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="admin/resources/css/sitecss.css" type="text/css" media="all"/>
+
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <p:growl id="msgs" showDetail="true" />
         <h:form>
-
-            <div class="sorupaneli1">
+            <ui:include src="kullaniciSolHeader.xhtml"/>
+            <div  class="sorupaneli1" style="margin-left: 250px;margin-top: 60px;width: 350px">
                 <p:panel header="Select a Location" class="sorupaneli"  style="margin-bottom:10px;">
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel for="kategori" value="Kategori: " />
-
+                        
                         <p:selectOneMenu id="kategori" value="#{dropdownView.kategori}" style="width:150px">
                             <p:ajax listener="#{dropdownView.onKategoriChange}" update="test" />
                             <f:selectItem itemLabel="Select Kategori" itemValue="" noSelectionOption="true" />

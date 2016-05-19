@@ -63,6 +63,12 @@ panelgrid{background-color: #E0E0E0}
 /* ============================= content ====================== */
 #content{padding-top:50px;padding-bottom:36px}
 #content2{padding-bottom:50px}
+.sorupaneli1{
+      margin-left:250px;
+  }
+ .ui-corner-right{
+     width: 22px !important; 
+  }
 .pad_left1{padding-left:50px}
 .pad_left2{padding-left:40px}
 .pad_bot1{padding-bottom:8px}
