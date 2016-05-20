@@ -25,11 +25,12 @@
 
         <ui:include src="kullaniciSolHeader.xhtml"/>
         <p:growl id="msgs" showDetail="true" />
-        <div style="margin-left: 275px;margin-top:70px;">
-            <h:form>
-                <c:forEach  var="soru" items="#{dropdownView.li}">
 
-                    <h:panelGrid columns="1" cellpadding="0" >
+        <div  style="margin-left: 275px;margin-top:70px;">
+            <h:form>
+                <c:forEach id="soru" var="soru" items="#{dropdownView.li}" >
+
+                    <h:panelGrid columns="1" cellpadding="0" style="font-size:16px" >
 
                         <c:choose>
                             <c:when test="#{soru.dogruCevapString.equals(soru.secilenCevap)}">
@@ -130,12 +131,15 @@
 
                     </h:panelGrid>
                     <br/>
-                    
+
+
 
                 </c:forEach>
+           
                 <p:commandButton   value="Tekrar test Çöz"  id="tekrar_sec" action="testcöz.xhtml?faces-redirect=true"  icon="ui-icon-check" />
             </h:form>
         </div>
+
     </h:body>
 </html>
 

@@ -117,7 +117,7 @@ public class DropdownView {
         SoruJpaController sjc = new SoruJpaController();
         li = sjc.getAllSoruFromTestID(gecmis.getTestID() + "");
         String verilenCevap = gecmis.getTestgecmisi();
-        for (int i = 0; i < verilenCevap.length(); i++) {
+        for (int i = 0; i < li.size(); i++) {
             if (verilenCevap.charAt(i) == '1') {
                 li.get(i).setSecilenCevap(li.get(i).getCevap1());
             } else if (verilenCevap.charAt(i) == '2') {

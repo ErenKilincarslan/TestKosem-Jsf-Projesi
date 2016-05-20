@@ -5,6 +5,7 @@
  */
 package entity.controller;
 
+import entity.Kategori;
 import entity.Soru;
 import entity.Test;
 import java.sql.PreparedStatement;
@@ -49,7 +50,7 @@ public class SoruJpaController {
     public List<Soru> getAllSoruFromTestID(String test) {
         Baglanti b = new Baglanti();
         List<Soru> list = new ArrayList<>();
-        FacesMessage message = new FacesMessage("Succesful", test+ " is uploaded.");
+        FacesMessage message = new FacesMessage("Succesful", test + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, message);
         try {
             b.baglan();
@@ -66,9 +67,9 @@ public class SoruJpaController {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7), 
+                        rs.getString(7),
                         rs.getInt(8));
-                s.setSoruNo(list.size()+1);
+                s.setSoruNo(list.size() + 1);
                 list.add(s);
             }
         } catch (SQLException ex) {
@@ -80,4 +81,38 @@ public class SoruJpaController {
         return list;
     }
 
+    public List<Soru> getAllSoru() {
+        Baglanti b = new Baglanti();
+        List<Soru> list = new ArrayList<>();
+        try {
+            b.baglan();
+            PreparedStatement ps = b.conn.prepareStatement(
+                    "select * from soru ",
+                    PreparedStatement.RETURN_GENERATED_KEYS);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Test t=new Test();
+                t.setTestid(rs.getInt(2));
+                TestJpaController controller=new TestJpaController();
+                t.setKategoriid(controller.getKategoriFromTestID(t.getTestid()));
+                Soru s = new Soru(
+                        rs.getInt(1),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8));
+                s.setTestid(t);
+                s.setSoruNo(list.size() + 1);
+                list.add(s);
+            }
+        } catch (SQLException ex) {
+            throw new Error(ex.getMessage());
+
+        } finally {
+            b.baglantiKes();
+        }
+        return list;
+    }
 }

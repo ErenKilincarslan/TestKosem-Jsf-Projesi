@@ -50,8 +50,29 @@ public class KullanıcıManagedBean extends Baglanti implements Serializable {
         users = kullaniciListele();
     }
 
-    public static Kullanıcı getUserFromSession(HttpSession session) {
+    public Kullanıcı getUserFromSession(HttpSession session) {
         return (Kullanıcı) session.getAttribute("user");
+    }
+
+    public void kaydet(HttpSession session) {
+        baglan();
+        Kullanıcı k = (Kullanıcı) session.getAttribute("user");
+        try {
+            PreparedStatement ps = conn.prepareStatement("update kullanici set adi=?,"
+                    + " soyadi=? , email=? , sifre=? ,"
+                    + " kullaniciadi=? where id=? ");
+            ps.setString(1, k.getAdi());
+            ps.setString(2, k.getSoyadi());
+            ps.setString(3, k.getEmail());
+            ps.setString(4, k.getSifre());
+            ps.setString(5, k.getKullaniciAdi());
+            ps.setInt(6, k.getKullaniciid());
+            ps.executeUpdate();
+            FacesMessage ms2 = new FacesMessage("Kullanıcı başarıyla güncellendi", k.getKullaniciAdi() + "");
+            FacesContext.getCurrentInstance().addMessage(null, ms2);
+
+        } catch (SQLException ex) {
+        }
     }
 
     public String giris(HttpSession session) {

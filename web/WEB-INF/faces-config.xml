@@ -19,4 +19,14 @@
             <var>bundle</var>
         </resource-bundle>
     </application>
+    <managed-bean>
+        <managed-bean-name>fontSize</managed-bean-name>
+        <managed-bean-class>javaKodları.FontSize</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>sorularManagedBean</managed-bean-name>
+        <managed-bean-class>javaKodları.SorularManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

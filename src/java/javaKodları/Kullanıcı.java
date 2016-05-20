@@ -143,7 +143,7 @@ public class Kullanıcı implements Serializable {
 
     @Override
     public String toString() {
-        return "javaKodları.Kullanıcı[ kullaniciAdi=" + kullaniciAdi + " ]";
+        return getAdi()+getEmail()+getKullaniciAdi()+getSifre()+getSoyadi();
     }
     
 }

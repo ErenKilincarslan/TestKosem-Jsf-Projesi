@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:include src="adminAnasayfaTemplate.xhtml"/>
+        <div class="boslukBırak">
+            <h:form id="form">
+                <p:growl id="messages" showDetail="true" />
+
+
+                <p:dataTable style="margin-left: 20%;margin-right: 5%;margin-top: 5%" id="rowEditingTable" var="soru" value="#{sorularManagedBean.sorular}"  
+                             paginator="true" rows="10" paginatorPosition="bottom"  
+                             editable="true" >  
+                    <f:facet name="header">  
+                        Soruları Düzenle - Sil
+                    </f:facet>  
+
+                    <p:ajax event="rowEdit"  listener="#{sorularManagedBean.guncelle}" update=":form:messages" immediate="true" process="@this"/>
+                    <p:column filterBy="#{soru.testid.kategoriid.kategori}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Kategori"/>  
+                        </f:facet>  
+                        <h:outputText value="#{soru.testid.kategoriid.kategori}"/>  
+                    </p:column>
+                    <p:column filterBy="#{soru.testid.testid}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Test"/>  
+                        </f:facet>  
+                        <h:outputText value="#{soru.testid.testid}"/>  
+                    </p:column>
+
+                    <p:column filterBy="#{soru.soru}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Soru"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText  value="#{soru.soru}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:inputTextarea value="#{soru.soru}" style="color: black;height: 150px;width: 100px;" />  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+                    <p:column filterBy="#{soru.cevap1}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Cevap 1"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{soru.cevap1}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:inputTextarea value="#{soru.cevap1}" style="color: black;width: 100px" />  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+                    <p:column filterBy="#{soru.cevap2}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Cevap 2"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{soru.cevap2}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:inputTextarea value="#{soru.cevap2}" style="color: black;width: 100px" />  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+
+                    <p:column filterBy="#{soru.cevap3}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Cevap 3"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{soru.cevap3}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:inputTextarea value="#{soru.cevap3}" style="color: black;width: 100px" />  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+                    <p:column filterBy="#{soru.cevap4}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Cevap 4"/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{soru.cevap4}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:inputTextarea value="#{soru.cevap4}" style="color: black;width: 100px" />   
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+                    <p:column filterBy="#{soru.dogrucevap}">  
+                        <f:facet name="header">  
+                            <h:outputText value="Doğru C."/>  
+                        </f:facet>  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{soru.dogrucevap}"/>  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="#{soru.dogrucevap}" style="color: black;width: 100px" />   
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Action</f:facet>
+                        <h:commandLink value="Delete" 
+                                       action="#{sorularManagedBean.kayitSil(soru)}" />
+                    </p:column>
+                    <p:column style="width:6%" exportable="false">  
+                        <p:rowEditor  />  
+                    </p:column>  
+                </p:dataTable>  
+
+                <p:spacer height="20"/>  
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+
